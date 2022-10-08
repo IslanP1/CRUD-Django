@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista de clientes</title>
+</head>
+<body>
+    <h1>Lista de clientes</h1>
+    <input type="submit" onclick="location.href = '{% url 'crud:create' %}'" value="Criar novo cliente">
+    <ul>
+        {% for cliente in object_list %}
+        <li>{{ cliente.nome }} - <a href="{% url 'crud:update' pk=cliente.id %}">Editar</a>
+            <a href="{% url 'crud:detail' pk=cliente.id %}">Visualizar</a>
+            <a href="{% url 'crud:delete' pk=cliente.id %}">Apagar</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
