@@ -5,12 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apagar cliente</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    Tem certeza que deseja apagar o cliente '{{ object.nome }}?'
-    <form action="." method="post">
-        {% csrf_token %}
-        <input type="submit" value="Sim, tenho certeza">
-        <input type="reset" onclick="location.href = '{% url 'crud:list' %}'" value="Não quero apagar mais">
+    <div class="container mt-5">
+        <h1>Tem certeza que deseja apagar o cliente '{{ object.nome }}'?</h1>
+        <form action="." method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sim, tenho certeza</button>
+            <button type="button" class="btn btn-secondary" onclick="location.href = '{% url 'crud:list' %}'">Não quero apagar mais</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -5,12 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar cliente</title>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <input type="submit" onclick="location.href = '{% url 'crud:list' %}'" value="Voltar para a lista">
-    <br/>
-    Nome: {{ object.nome }}
-    <br/>
-    Idade: {{ object.idade }}
+    <div class="container mt-5">
+        <button type="button" class="btn btn-primary" onclick="location.href = '{% url 'crud:list' %}'">Voltar para a lista</button>
+        <br><br>
+        <h2>Detalhes do Cliente</h2>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Nome:</h4>
+                <p>{{ object.nome }}</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Idade:</h4>
+                <p>{{ object.idade }}</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

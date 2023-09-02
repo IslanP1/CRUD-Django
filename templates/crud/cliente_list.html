@@ -4,18 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lista de clientes</title>
+    <title>Lista de Clientes</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    
+        body {
+            padding: 20px;
+        }
+        .action-links {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Lista de clientes</h1>
-    <input type="submit" onclick="location.href = '{% url 'crud:create' %}'" value="Criar novo cliente">
-    <ul>
-        {% for cliente in object_list %}
-        <li>{{ cliente.nome }} - <a href="{% url 'crud:update' pk=cliente.id %}">Editar</a>
-            <a href="{% url 'crud:detail' pk=cliente.id %}">Visualizar</a>
-            <a href="{% url 'crud:delete' pk=cliente.id %}">Apagar</a>
-        </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1 class="mt-5">Lista de Clientes</h1>
+        <a class="btn btn-success mb-3" href="{% url 'crud:create' %}">Criar Novo Cliente</a>
+        <ul class="list-group">
+            {% for cliente in object_list %}
+            <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>{{ cliente.nome }}</span>
+                    <div class="action-links">
+                        <a class="btn btn-primary btn-sm" href="{% url 'crud:update' pk=cliente.id %}">Editar</a>
+                        <a class="btn btn-info btn-sm" href="{% url 'crud:detail' pk=cliente.id %}">Visualizar</a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'crud:delete' pk=cliente.id %}">Apagar</a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
